@@ -1,0 +1,60 @@
+<mvc:View xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:mvc="sap.ui.core.mvc"
+          controllerName="be.infrabel.sap.mobile.scm.controller.Home"
+          displayBlock="true"
+          width="100%"
+          height="100%">
+  <f:DynamicPage toggleHeaderOnTitleClick="false"
+                 preserveHeaderStateOnScroll="true">
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="{i18n>action.home}" />
+        </f:heading>
+        <f:navigationActions>
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://full-screen"
+                                 press="handleSwitchToFullScreenMode"
+                                 tooltip="{i18n>tooltip.fullScreen}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://exit-full-screen"
+                                 press="handleExitFullScreenMode"
+                                 tooltip="{i18n>tooltip.exitFullScreen}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://decline"
+                                 press="handleCloseColumn"
+                                 tooltip="{i18n>tooltip.closeColumn}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
+        </f:navigationActions>
+      </f:DynamicPageTitle>
+    </f:title>
+    <f:content>
+      <List
+				headerText="{i18n>home.news}"
+				items="{
+          path: 'news>/',
+          sorter: {
+            path: 'timestamp',
+            descending: true
+          }
+        }" >
+        <items>
+          <FeedListItem
+              sender="{news>sender}"
+              senderActive="false"
+              timestamp="{
+                path: 'news>timestamp',
+                formatter: '.formatter.formatDate'
+              }"
+              text="{news>text}"
+              showIcon="false"
+              iconDensityAware="false">
+          </FeedListItem>
+        </items>
+      </List>
+    </f:content>
+  </f:DynamicPage>
+</mvc:View>

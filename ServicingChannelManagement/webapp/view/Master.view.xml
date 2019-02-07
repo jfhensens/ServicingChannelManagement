@@ -1,0 +1,54 @@
+<mvc:View xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:tnt="sap.tnt"
+          controllerName="be.infrabel.sap.mobile.scm.controller.Master"
+          displayBlock="true"
+          width="100%"
+          height="100%">
+  <f:DynamicPage>
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="{user>/domainName}" />
+        </f:heading>
+        <f:actions>
+          <Button icon="sap-icon://log"
+                  type="Reject"
+                  press="closeApp" />
+        </f:actions>
+      </f:DynamicPageTitle>
+    </f:title>
+    <f:content>
+      <List class="sapFDynamicPageAlignContent"
+            itemPress="onToolSelected">
+        <items>
+          <ActionListItem id="home" 
+                          text="{i18n>action.home}"
+                          type="Navigation"
+                          visible="true" />
+          <ActionListItem id="settings" 
+                          text="{i18n>action.settings}"
+                          type="Navigation"
+                          visible="true" />
+          <ActionListItem id="listAppPackages" 
+                          text="{i18n>action.listAppPackages}"
+                          type="Navigation"
+                          visible="true" />
+          <ActionListItem id="listServicingChannels" 
+                          text="{i18n>action.listServicingChannels}" 
+                          type="Navigation"
+                          visible="true" />
+          <ActionListItem id="appPackageDeployment" 
+                          text="{i18n>action.appPackageDeployment}" 
+                          type="Navigation"
+                          visible="true" />
+          <ActionListItem id="emergencyStop" 
+                          text="{i18n>action.emergencyStop}"
+                          type="Navigation"
+                          visible="true" />
+        </items>
+      </List>
+    </f:content>
+  </f:DynamicPage>
+</mvc:View>

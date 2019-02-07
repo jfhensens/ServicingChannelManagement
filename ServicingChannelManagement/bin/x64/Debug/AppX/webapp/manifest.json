@@ -1,0 +1,144 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "be.infrabel.sap.mobile.scm",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "news": {
+        "uri": "model/news.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "be.infrabel.sap.mobile.scm.view.App",
+      "type": "XML",
+      "async": true
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "be.infrabel.sap.mobile.scm.view",
+        "controlId": "fcl",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": ":layout:",
+          "name": "home",
+          "target": [
+            "master",
+            "home"
+          ]
+        },
+        {
+          "pattern": "settings/{layout}",
+          "name": "settings",
+          "target": [
+            "master",
+            "settings"
+          ]
+        },
+        {
+          "pattern": "listAppPackages/{layout}",
+          "name": "listAppPackages",
+          "target": [
+            "master",
+            "listAppPackages"
+          ]
+        },
+        {
+          "pattern": "listServicingChannels/{layout}",
+          "name": "listServicingChannels",
+          "target": [
+            "master",
+            "listServicingChannels"
+          ]
+        },
+        {
+          "pattern": "appPackageDeployment/{layout}",
+          "name": "appPackageDeployment",
+          "target": [
+            "master",
+            "appPackageDeployment"
+          ]
+        },
+        {
+          "pattern": "emergencyStop/{layout}",
+          "name": "emergencyStop",
+          "target": [
+            "master",
+            "emergencyStop"
+          ]
+        }
+      ],
+      "targets": {
+        "master": {
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "home": {
+          "viewName": "Home",
+          "controlAggregation": "midColumnPages"
+        },
+        "settings": {
+          "viewName": "Settings",
+          "controlAggregation": "midColumnPages"
+        },
+        "listAppPackages": {
+          "viewName": "ListAppPackages",
+          "controlAggregation": "midColumnPages"
+        },
+        "listServicingChannels": {
+          "viewName": "ListServicingChannels",
+          "controlAggregation": "midColumnPages"
+        },
+        "appPackageDeployment": {
+          "viewName": "AppPackageDeployment",
+          "controlAggregation": "midColumnPages"
+        },
+        "emergencyStop": {
+          "viewName": "EmergencyStop",
+          "controlAggregation": "midColumnPages"
+        }
+      }
+    },
+    "dependencies": {
+      "minUI5Version": "1.61.2",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.f": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "be.infrabel.sap.mobile.scm.i18n.i18n"
+        }
+      },
+      "news": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "news"
+      }
+    }
+  }
+}

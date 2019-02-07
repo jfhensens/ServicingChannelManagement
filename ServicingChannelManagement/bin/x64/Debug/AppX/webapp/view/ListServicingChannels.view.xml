@@ -1,0 +1,41 @@
+<mvc:View xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:mvc="sap.ui.core.mvc"
+          controllerName="be.infrabel.sap.mobile.scm.controller.ListServicingChannels"
+          displayBlock="true"
+          width="100%"
+          height="100%">
+  <f:DynamicPage toggleHeaderOnTitleClick="false"
+                 preserveHeaderStateOnScroll="true">
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="{i18n>action.listServicingChannels}" />
+        </f:heading>
+        <f:navigationActions>
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://full-screen"
+                                 press="handleSwitchToFullScreenMode"
+                                 tooltip="{i18n>tooltip.fullScreen}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/fullScreen} !== null }"/>          
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://exit-full-screen"
+                                 press="handleExitFullScreenMode"
+                                 tooltip="{i18n>tooltip.exitFullScreen}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+          <OverflowToolbarButton type="Transparent"
+                                 icon="sap-icon://decline"
+                                 press="handleCloseColumn"
+                                 tooltip="{i18n>tooltip.closeColumn}"
+                                 visible="{= ${fcl>/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
+        </f:navigationActions>
+      </f:DynamicPageTitle>
+    </f:title>
+    <f:content>
+      <Panel class="sapFDynamicPageAlignContent"
+             width="auto">
+        <Text text="Who cares ?" />
+      </Panel>
+    </f:content>
+  </f:DynamicPage>
+</mvc:View>

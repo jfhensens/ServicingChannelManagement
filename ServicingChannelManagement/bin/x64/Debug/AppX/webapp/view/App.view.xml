@@ -1,0 +1,16 @@
+<mvc:View xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:mvc="sap.ui.core.mvc"
+          controllerName="be.infrabel.sap.mobile.scm.controller.App"
+          displayBlock="true"
+          width="100%"
+          height="100%">
+  <App><!-- The root element of the UI5 mobile app. -->
+    <f:FlexibleColumnLayout
+      id="fcl"
+      backgroundDesign="Transparent"
+      layout="{fcl>/layout}"
+      stateChange="onStateChange">
+    </f:FlexibleColumnLayout>
+  </App>
+</mvc:View>
